@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Operaciones</a></div>
+{% endblock %}
+
+{% block content %}
+<div class="section" id="invoice-form">
+  <div class="row">
+        <form class="col s12" method="POST">
+
+          {% csrf_token %}
+          <!--BASIC DATA -->
+          <div class="section">
+            <!--Vendor and date -->
+            <div class="row">
+              <div class="input-field col s4">
+                {{ invoice_form.sales_person }}
+                <label>Vendedor</label>
+              </div>
+              <div class="input-field col s4 offset-s3">
+                {{ invoice_form.number }}
+                <label for="{{ invoice_form.number.id_for_label }}" data-error="El campo no puede estar vacio">Número Cotización</label>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="input-field col s4" >
+                {{ invoice_form.client }}
+                <label>Cliente</label>
+              </div>
+
+              <div class="input-field col s4 offset-s3">
+                {{ invoice_form.invoice_date }}
+                <label for="{{ invoice_form.invoice_date.id_for_label }}">Fecha</label>                
+              </div>
+
+            </div>
+
+            <!-- Client -->
+            <div class="row">
+
+              <div class="input-field col s4">
+                <div id="city"></div>
+              </div>
+
+              <div class="input-field col s4 offset-s3">
+                {{ invoice_form.due_date }}
+                <label for="{{ invoice_form.paid_date.id_for_label }}">Fecha Vencimiento</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEMS -->
+            <div class="row">  
+              <div class="col s11" id="form-header">
+                <div class="col s5">Descripción del producto</div>
+                <div class="col s2">Cantidad</div>
+                <div class="col s2">Precio</div>
+                <div class="col s3">Subtotal</div>
+              </div>
+            </div>
+
+
+          <!-- DATA INPUT -->
+            <div class="row" id="data">
+              {{ formset.management_form }}
+              <div class="col s12" id="item-data">
+              {% for form in formset %}
+                  <div class="item-row">
+                      <div class="col s11">
+                          <div class="input-field col s5">                 
+                              {{ form.product }}
+                          </div>
+                          <div class="input-field col s2">
+                              {{ form.quantity }}
+                          </div>
+                          <div class="input-field col s2">
+                              {{ form.unit_price }}
+                          </div>
+                          <div class="amount-field col s3">
+                              <div class="amount" id="amt0">$0</div>
+                          </div>
+                      </div>
+                      <div class="amount-field col s1 destroy">
+                          <a class="btn-floating waves-effect waves-light red" id="remove1"><i class="material-icons">delete</i></a>
+                      </div>
+                  </div>
+              {% endfor %}
+              </div>
+
+              <!-- TOTALS  -->
+              <div class="col s11" id="totals">
+
+                <div class="col s4 offset-s8">
+                  <div class="col s4">Subtotal</div>
+                  <div class="col s8" id="subtotal">$ 0</div>
+                </div>
+
+                <div class="col s4 offset-s8" id="tax-row">
+                  <div class="input-field col s12">
+                    {{ invoice_form.tax }}
+                    <label for="{{ invoice_form.tax.id_for_label }}">Impuesto</label>                       
+                  </div>
+                </div>
+
+                <div class="col s4 offset-s8">
+                  <div class="col s4"><h5>Total</h5></div>
+                  <div class="col s8"><h5 id="total">$0</h5></div>
+                </div>
+              </div>  <!--totals -->
+
+            </div> <!-- data -->
+          
+          <!-- Button -->
+          <div class="center-align">
+            <a class="btn-floating btn-large waves-effect waves-light red" id="add"><i class="material-icons">add</i></a>
+          </div>
+
+
+          <!-- NOTES AND TERMS -->
+          <div class="section">
+            <div class="row">
+                <div class="row">
+                  <div class="input-field col s11">
+                    {{ invoice_form.notes }}
+                    <label for="{{ invoice_form.notes.id_for_label }}">Notas</label>   
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row">
+                  <div class="input-field col s11">
+                    {{ invoice_form.terms }}
+                    <label for="{{ invoice_form.terms.id_for_label }}">Términos y Condiciones</label>                    
+                  </div>
+                </div>
+            </div>
+          </div>
+        <button href="{% url 'invoice' %}" class="btn waves-effect waves-light" type="submit" name="action">Generar</button>          
+        </form>
+
+  </div> <!--main-row-->
+</div> <!--section-->
+{% endblock %}
+
+</body>

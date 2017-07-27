@@ -1,0 +1,129 @@
+.icon-block {
+  padding: 0 15px;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+.input {
+    margin-bottom: 0px;
+}
+
+.items {
+    background-color: #5c5757;
+    color:white;
+}
+
+.amount-field {
+    margin-top: 1rem;
+}
+
+ .destroy {
+    display: none;
+} 
+
+.item-row:hover .destroy {
+  display:block;
+}
+
+
+.amount {
+    height:3rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.invoice-box {
+    height: 1040;
+    width: 810;
+    border: 1px solid 1px solid 1px solid 1px solid;
+}
+
+#form-header {
+    background-color: #ee6e73 ;
+    color:whitesmoke;     
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+#totals {
+    margin-top: 40px;
+}
+
+#tax-row {
+     margin-top: 20px;
+}
+
+.link-spanner{
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+
+/* a {
+    color:white;
+} */
+
+header, main, footer {
+    padding-left: 300px;
+}
+
+nav {
+    color: #fff;
+    background-color: #ee6e73;
+}
+
+nav.top-nav {
+    height: 122px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+nav.top-nav a.page-title {
+    line-height: 122px;
+    font-size: 48px;
+}
+
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+}
+/* 
+nav a {
+    color: #fff;
+} */
+
+a {
+    text-decoration: none;
+}
+
+#logo-container {
+    height: 57px;
+    margin-bottom: 32px;
+}
+
+li.logo {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 80px;
+}
+
+#logo-text {
+    font-family: harabara;
+    font-size: 60px;
+    /* color:#ee6e73; */
+    color:#e53935 ;
+}
+
+/* mark.AppRed {
+     color:#ff0000; 
+    color:#ee6e73;
+    background: none;
+} */

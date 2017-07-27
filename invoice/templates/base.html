@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'fonts/fonts.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+
+<header>
+      <nav class="top-nav">
+        <div class="container">
+          {% block header %}
+            <div class="nav-wrapper"><a class="page-title">Index</a></div>
+          {% endblock %}
+        </div>
+      </nav>
+</header>
+
+<ul id="slide-out" class="side-nav fixed">
+  <li class="logo">
+    <a id="logo container" href="{% url 'index' %}">
+      <span id="logo-text">CotiApp</span>
+    </a>
+  </li>
+  <li><a href="{% url 'invoice' %}">Operaciones</a></li>
+  <li><a href="#!">Administración</a></li>
+  <li><a href="#!">Reportes</a></li>
+  <li><a href="#!">Configuración</a></li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+<main>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+</main>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src= "{% static 'js/materialize.js' %}" ></script>
+<script src="{% static 'js/invoice.js' %}"></script>
+<script>
+  $('.datepicker').pickadate({
+    format: 'dd/mm/yyyy',
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    today: 'Today',
+  })
+
+$('.button-collapse').sideNav('show');
+
+  // Initialize collapse button
+  $(".button-collapse").sideNav()
+</script>
+
+
+</body>
