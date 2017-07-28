@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from invoice.forms import InvoiceForm, InvoiceItemForm
+from invoice.forms import InvoiceForm, InvoiceItemForm, ClientForm, SalesPersonForm, ProductForm
 from django.forms import formset_factory, modelformset_factory
 from .models import Invoice, InvoiceItem, Product, Client
 from django.http import JsonResponse
@@ -9,6 +9,37 @@ from decimal import Decimal
 # Create your views here.
 def index(request):
     return render(request, "index.html", {})
+
+def register_client(request):
+    if request.method == "POST":
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('register_client')
+    else:
+        form = ClientForm()
+    return render(request, 'client.html', {'form': form})
+
+def register_salesperson(request):
+    if request.method == "POST":
+        form = SalesPersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('register_salesperson')
+    else:
+        form = SalesPersonForm()    
+    return render(request, 'salesperson.html', {'form': form})
+
+def register_product(request):
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('register_product')
+    else:    
+        form = ProductForm()
+    return render(request, 'product.html', {'form': form})
+
 
 def invoice(request):
     InvoiceFormSet = formset_factory(InvoiceItemForm)

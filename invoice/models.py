@@ -63,5 +63,5 @@ class InvoiceItem(models.Model):
         return total.quantize(Decimal('0.01'))
 
     def __str(self):
-        return str(self.id)
+        return str(self.id)  
     

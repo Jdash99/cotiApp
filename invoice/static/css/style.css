@@ -95,10 +95,6 @@ nav .nav-wrapper {
     position: relative;
     height: 100%;
 }
-/* 
-nav a {
-    color: #fff;
-} */
 
 a {
     text-decoration: none;
@@ -111,8 +107,8 @@ a {
 
 li.logo {
     text-align: center;
-    margin-top: 32px;
-    margin-bottom: 80px;
+    margin-top: 37px;
+    margin-bottom: 36px;
 }
 
 #logo-text {
@@ -122,8 +118,44 @@ li.logo {
     color:#e53935 ;
 }
 
-/* mark.AppRed {
-     color:#ff0000; 
-    color:#ee6e73;
-    background: none;
-} */
+ul.side-nav.fixed ul.collapsible-accordion a.collapsible-header {
+    padding: 0 30px;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.side-nav li {
+    float: none;
+    line-height: 48px;
+}
+
+ul.side-nav.fixed ul.collapsible-accordion .collapsible-body li a {
+    font-weight: 400;
+    padding: 0 37.5px 0 45px;
+}
+
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active, .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active {
+    background-color: #ee6e73;
+}
+
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active a, .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active a {
+    color: #fff;
+}
+
+.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.header {
+    color: #ee6e73;
+    font-weight: 300;
+}
+
+.caption {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}

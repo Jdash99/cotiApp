@@ -8,7 +8,7 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'fonts/fonts.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -16,27 +16,44 @@
 <body>
 
 <header>
-      <nav class="top-nav">
-        <div class="container">
-          {% block header %}
-            <div class="nav-wrapper"><a class="page-title">Index</a></div>
-          {% endblock %}
-        </div>
-      </nav>
+  <nav class="top-nav">
+    <div class="container">
+      {% block header %}
+        <div class="nav-wrapper"><a class="page-title">Index</a></div>
+      {% endblock %}
+    </div>
+  </nav>
+  <ul id="slide-out" class="side-nav fixed">
+    <li class="logo">
+      <a id="logo container" href="{% url 'index' %}">
+        <span id="logo-text">CotiApp</span>
+      </a>
+    </li>
+    <li><div class="divider"></div></li>
+
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+        <li class="bold">
+          <a class="collapsible-header waves-effect waves-teal">Operaciones</a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="{% url 'register_client' %}">Registro de clientes</a></li>
+              <li><a href="{% url 'register_salesperson' %}">Registro de vendedores</a></li>
+              <li><a href="{% url 'register_product' %}">Registro de productos</a></li>
+              <li><a href="{% url 'invoice' %}">Registro de cotización</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li class="bold" class="waves-effect waves-teal"><a href="#">Administración</a></li>
+    <li class="bold" class="waves-effect waves-teal"><a href="#">Reportes</a></li>
+    <li class="bold" class="waves-effect waves-teal"><a href="#">Configuración</a></li>    
+  </ul>     
 </header>
 
-<ul id="slide-out" class="side-nav fixed">
-  <li class="logo">
-    <a id="logo container" href="{% url 'index' %}">
-      <span id="logo-text">CotiApp</span>
-    </a>
-  </li>
-  <li><a href="{% url 'invoice' %}">Operaciones</a></li>
-  <li><a href="#!">Administración</a></li>
-  <li><a href="#!">Reportes</a></li>
-  <li><a href="#!">Configuración</a></li>
-</ul>
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+<!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
 
 <main>
 <div class="container">
@@ -47,7 +64,7 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src= "{% static 'js/materialize.js' %}" ></script>
+<script src= "{% static 'js/materialize.min.js' %}" ></script>
 <script src="{% static 'js/invoice.js' %}"></script>
 <script>
   $('.datepicker').pickadate({
@@ -57,10 +74,11 @@
     today: 'Today',
   })
 
-$('.button-collapse').sideNav('show');
+//$('.button-collapse').sideNav('show');
 
-  // Initialize collapse button
-  $(".button-collapse").sideNav()
+// Initialize collapse button
+//$(".button-collapse").sideNav()
+
 </script>
 
 
