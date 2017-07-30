@@ -31,6 +31,7 @@
     </li>
     <li><div class="divider"></div></li>
 
+    {% comment %} Operaciones {% endcomment %}
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
         <li class="bold">
@@ -46,9 +47,44 @@
         </li>
       </ul>
     </li>
-    <li class="bold" class="waves-effect waves-teal"><a href="#">Administración</a></li>
+
+    {% comment %} Administración {% endcomment %}
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+        <li class="bold">
+          <a class="collapsible-header waves-effect waves-teal">Administración</a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#">Actualizar Archivos</a></li>
+              <li><a href="#">Ir a reportes de gestión</a></li>
+              <li><a href="#">Reporte xxxxxx</a></li>
+              <li><a href="#">Reporte xxxxxx</a></li>
+              <li><a href="#">Reporte xxxxxx</a></li>
+              <li><a href="#">Manual documento de reportes</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+
     <li class="bold" class="waves-effect waves-teal"><a href="#">Reportes</a></li>
-    <li class="bold" class="waves-effect waves-teal"><a href="#">Configuración</a></li>    
+
+    {% comment %} Configuración {% endcomment %}
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+        <li class="bold">
+          <a class="collapsible-header waves-effect waves-teal">Configuración</a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="{% url 'conexion' %}">Conexión de datos</a></li>
+              <li><a href="#">Información organización</a></li>
+              <li><a href="#">Información sistema</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+    
   </ul>     
 </header>
 

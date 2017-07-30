@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from invoice.forms import InvoiceForm, InvoiceItemForm, ClientForm, SalesPersonForm, ProductForm
+from invoice.forms import InvoiceForm, InvoiceItemForm, ClientForm, SalesPersonForm, ProductForm, ConexionForm
 from django.forms import formset_factory, modelformset_factory
 from .models import Invoice, InvoiceItem, Product, Client
 from django.http import JsonResponse
@@ -9,6 +9,10 @@ from decimal import Decimal
 # Create your views here.
 def index(request):
     return render(request, "index.html", {})
+
+def conexion(request):
+    form = ConexionForm()
+    return render(request, "conexion.html", {'form': form})
 
 def register_client(request):
     if request.method == "POST":

@@ -149,6 +149,10 @@ ul.side-nav.fixed ul.collapsible-accordion .collapsible-body li a {
     padding-bottom: 1rem;
 }
 
+.smallform  {
+    width: 40%;
+}
+
 .header {
     color: #ee6e73;
     font-weight: 300;

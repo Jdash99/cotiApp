@@ -46,3 +46,9 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('description', 'measurement_unit')
+
+class ConexionForm(forms.Form):
+    servidor = forms.CharField(widget=forms.TextInput())
+    base_datos = forms.CharField(widget=forms.TextInput())
+    usuario = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=forms.PasswordInput())
