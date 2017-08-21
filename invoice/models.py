@@ -76,7 +76,12 @@ class SalesPerson(models.Model):
         invoice_total = Decimal('0.00')
         for invoice in invoices:
             invoice_total += invoice.total
-        average = invoice_total / len(invoices)
+
+        if len(invoice) > 0:
+            average = invoice_total / len(invoices)
+        else:
+            average = 0
+        
         return average
 
 
@@ -136,7 +141,7 @@ class InvoiceItem(models.Model):
         return total.quantize(Decimal('0.01'))
 
     def __str(self):
-        return str(self.id)  
+        return str(self.id)
 
 def get_total_invoiced():
     invoices = Invoice.objects.all()
