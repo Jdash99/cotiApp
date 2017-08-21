@@ -77,7 +77,7 @@ class SalesPerson(models.Model):
         for invoice in invoices:
             invoice_total += invoice.total
 
-        if len(invoice) > 0:
+        if len(invoices) > 0:
             average = invoice_total / len(invoices)
         else:
             average = 0
