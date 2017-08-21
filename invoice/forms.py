@@ -33,6 +33,10 @@ class ClientForm(forms.ModelForm):
         model = Client
         fields = ('name', 'nit', 'city')
 
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'validate'}),
+            'nit': forms.TextInput(attrs={'class': 'validate'}),
+        } 
 
 class SalesPersonForm(forms.ModelForm):
 
@@ -40,12 +44,23 @@ class SalesPersonForm(forms.ModelForm):
         model = SalesPerson
         fields = ('name', 'nit')
 
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'validate'}),
+            'nit': forms.TextInput(attrs={'class': 'validate'}),
+        }         
+
 
 class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
         fields = ('description', 'measurement_unit')
+
+        widgets = {
+            'description': forms.TextInput(attrs={'class': 'validate'}),
+            'measurement_unit': forms.TextInput(attrs={'class': 'validate'}),
+        }         
+
 
 class ConexionForm(forms.Form):
     servidor = forms.CharField(widget=forms.TextInput())

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Reporte Ciudades</a></div>
+{% endblock %}
+
+{% block content %}
+     <table class="highlight">
+        <thead>
+          <tr>
+              <th>Nombre</th>              
+              <th>Departamento</th>
+              <th>No. Clientes</th>
+              <th>Monto Total Cotizado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for city in cities %}
+                <tr>
+                    <td> {{ city.name }} </td>
+                    <td> {{ city.department }} </td>
+                    <td> {{ city.count_clients }}</td>
+                    <td> $ {{ city.amount_invoiced|intcomma }}</td>
+                </tr>
+            {% endfor %}            
+        </tbody>
+      </table>
+
+{% endblock %}

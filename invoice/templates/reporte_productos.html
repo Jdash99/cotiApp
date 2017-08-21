@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Reporte Productos</a></div>
+{% endblock %}
+
+{% block content %}
+     <table class="highlight">
+        <thead>
+          <tr>
+              <th>Descripcion</th>              
+              <th>Unidad Medida</th>
+              <th>Total Cotizado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td> {{ product.description }} </td>
+                    <td> {{ product.measurement_unit }} </td>
+                    <td> $ {{ product.total|intcomma}}</td>
+                </tr>
+            {% endfor %}            
+        </tbody>
+      </table>
+
+{% endblock %}

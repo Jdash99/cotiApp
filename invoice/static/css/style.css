@@ -163,3 +163,27 @@ ul.side-nav.fixed ul.collapsible-accordion .collapsible-body li a {
     font-weight: 300;
     margin-bottom: 30px;
 }
+
+/*Tabs*/
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: #9E9E9E;
+}
+
+.tabs .tab a {
+    color: #9E9E9E;
+}
+
+.tabs .indicator {
+    background-color: #9E9E9E;
+}
+
+.chart-tab {
+    margin-top: 20px;
+    }
+
+.dashboard-box {
+    margin-top: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 2px;
+}

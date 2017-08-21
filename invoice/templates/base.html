@@ -55,19 +55,30 @@
           <a class="collapsible-header waves-effect waves-teal">Administración</a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#">Actualizar Archivos</a></li>
-              <li><a href="#">Ir a reportes de gestión</a></li>
-              <li><a href="#">Reporte xxxxxx</a></li>
-              <li><a href="#">Reporte xxxxxx</a></li>
-              <li><a href="#">Reporte xxxxxx</a></li>
-              <li><a href="#">Manual documento de reportes</a></li>
+              <li><a href="{% url 'report_salespersons' %}">Reportes Vendedores</a></li>
+              <li><a href="{% url 'report_cities' %}">Reporte Ciudades</a></li>
+              <li><a href="{% url 'report_clients' %}">Reporte Clientes</a></li>
+              <li><a href="{% url 'report_products' %}">Reporte Productos</a></li>
+              <!-- <li><a href="#">Manual documento de reportes</a></li> -->
             </ul>
           </div>
         </li>
       </ul>
     </li>
 
-    <li class="bold" class="waves-effect waves-teal"><a href="#">Reportes</a></li>
+    <!-- <li class="bold" class="waves-effect waves-teal"><a href="#">Reportes</a></li> -->
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+        <li class="bold">
+          <a class="collapsible-header waves-effect waves-teal">Indicadores</a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>    
 
     {% comment %} Configuración {% endcomment %}
     <li class="no-padding">
@@ -88,9 +99,6 @@
   </ul>     
 </header>
 
-
-<!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
-
 <main>
 <div class="container">
     {% block content %}
@@ -98,6 +106,7 @@
 </div>
 </main>
 
+{% block scripts %}
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src= "{% static 'js/materialize.min.js' %}" ></script>
@@ -109,13 +118,7 @@
     selectYears: 15, // Creates a dropdown of 15 years to control year
     today: 'Today',
   })
-
-//$('.button-collapse').sideNav('show');
-
-// Initialize collapse button
-//$(".button-collapse").sideNav()
-
 </script>
-
+{% endblock scripts %}
 
 </body>

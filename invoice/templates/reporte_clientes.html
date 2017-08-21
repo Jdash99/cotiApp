@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Reporte Clientes</a></div>
+{% endblock %}
+
+{% block content %}
+     <table class="highlight">
+        <thead>
+          <tr>
+              <th>Nombre</th>              
+              <th>Nit/Id</th>
+              <th>Ciudad</th>
+              <th>No. Cotizaciones</th>
+              <th>Monto Total Cotizado</th>
+              <th>Participación</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td> {{ client.name }} </td>
+                    <td> {{ client.nit }} </td>
+                    <td> {{ client.city }}</td>
+                    <td> {{ client.count_invoiced }}</td>
+                    <td> $ {{ client.amount_invoiced|intcomma }}</td>
+                    <td> % {{ client.participation|floatformat:2|intcomma }}</td>
+                </tr>
+            {% endfor %}            
+        </tbody>
+      </table>
+
+{% endblock %}

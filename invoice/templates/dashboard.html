@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Tablero de Indicadores</a></div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row dashboard-box">
+    <div class="col s4">
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <i class="material-icons circle red">people</i>
+                <span class="title">{{ clients }}</span>
+                <p>Clientes</p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">show_chart</i>
+                <span class="title">{{ invoice_count|intcomma }}</span>
+                <p>Cotizaciones</p>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle green">attach_money</i>
+                <span class="title">$ {{ total_invoiced|intcomma }}</span>
+                <p>Millones Cotizados</p>
+            </li>
+        </ul>
+    </div>
+    <div class="col s8">
+        <div>
+            <div class="col s12">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab col s4"><a href="#top-productos" data-graf="1">Top Productos</a></li>
+                    <li class="tab col s4"><a href="#top-vendedores" data-graf="2">Top Vendedores</a></li>
+                    <li class="tab col s4"><a href="#top-clientes" data-graf="3">Top Clientes</a></li>
+                </ul>
+            </div>
+            <div class="col s12 chart-tab"><div id="top-productos"></div></div>
+            <div class="col s12"><div id="top-vendedores"></div></div>
+            <div class="col s12"><div id="top-clientes"></div></div>            
+        </div>       
+    </div>  
+</div>
+  
+<div class="row">
+    <div class="col s7">
+        <div id="monto-total"></div>
+    </div>
+    <div class="col s5">
+        <div id="monto-ciudades"></div>
+    </div>           
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src= "{% static 'js/materialize.min.js' %}" ></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src= "{% static 'js/dashboard.js' %}" ></script>
+
+{% endblock scripts %}
+

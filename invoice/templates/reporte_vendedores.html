@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block header %}
+    <div class="nav-wrapper"><a class="page-title">Reporte Vendedores</a></div>
+{% endblock %}
+
+{% block content %}
+     <table class="highlight">
+        <thead>
+          <tr>
+              <th>Nombre</th>              
+              <th>Nit/Id</th>
+              <th>Ciudad</th>
+              <th>No. Cotizaciones</th>
+              <th>Monto Total Cotizado</th>
+              <th>Participación</th>
+              <th>Cotización Promedio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for salesperson in salespersons %}
+                <tr>
+                    <td> {{ salesperson.name }} </td>
+                    <td> {{ salesperson.nit }} </td>
+                    <td> {{ salesperson.city }}</td>
+                    <td> {{ salesperson.count_invoiced }}</td>
+                    <td> $ {{ salesperson.amount_invoiced|intcomma }}</td>
+                    <td> % {{ salesperson.participation|floatformat:2|intcomma }}</td>
+                    <td> $ {{ salesperson.average_invoice|intcomma }}</td>
+                </tr>
+            {% endfor %}            
+        </tbody>
+      </table>
+
+{% endblock %}
